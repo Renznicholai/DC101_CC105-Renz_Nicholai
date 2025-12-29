@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hospital Appointment System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    
+    <aside class="sidebar">
+      <div class="brand">🏥 MedicalCare</div>
+      <nav>
+        <a href="#" class="nav-link active" data-section="dashboard">Dashboard</a>
+        <a href="#" class="nav-link" data-section="department">Department</a>
+        <a href="#" class="nav-link" data-section="doctor">Doctor</a>
+        <a href="#" class="nav-link" data-section="representative">Representative</a>
+        <a href="#" class="nav-link" data-section="patient">Patient</a>
+        <a href="#" class="nav-link" data-section="schedule">Schedule</a>
+        <a href="#" class="nav-link" data-section="appointment">Appointment</a>
+      </nav>
+      <div class="sidebar-foot">User: <strong>Admin</strong></div>
+    </aside>
+
+    
+    <main class="main">
+
+      
+      <section id="dashboard" class="section active-section">
+        <h1>Dashboard</h1>
+        <div class="cards" id="dashboardCards">
+          <div class="card">
+            <div class="card-title">Total Appointments</div>
+            <div id="totalAppointments" class="card-value">—</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Total Doctors</div>
+            <div id="totalDoctors" class="card-value">—</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Total Patients</div>
+            <div id="totalPatients" class="card-value">—</div>
+          </div>
+        </div>
+      </section>
+
+     
+      <section id="department" class="section">
+        <h1>Departments</h1>
+        <div class="two-col">
+          <div class="form-card">
+            <h3>Add Department</h3>
+            <form id="deptForm">
+              <label for="dept_name">Name</label>
+              <input id="dept_name" required />
+              <label for="dept_desc">Description</label>
+              <input id="dept_desc" />
+              <button type="submit">Add Department</button>
+            </form>
+          </div>
+          <div id="deptList" class="list-card">Loading...</div>
+        </div>
+      </section>
+
+     
+      <section id="doctor" class="section">
+        <h1>Doctors</h1>
+        <div class="two-col">
+          <div class="form-card">
+            <h3>Add Doctor</h3>
+            <form id="doctorForm">
+              <label for="doc_name">Full Name</label>
+              <input id="doc_name" required />
+              <label for="doc_email">Email</label>
+              <input id="doc_email" type="email" />
+              <label for="doc_phone">Phone</label>
+              <input id="doc_phone" />
+              <label for="doc_dept">Department</label>
+              <select id="doc_dept"></select>
+              <label for="doc_spec">Specialization</label>
+              <input id="doc_spec" />
+              <button type="submit">Add Doctor</button>
+            </form>
+          </div>
+          <div id="doctorList" class="list-card">Loading...</div>
+        </div>
+      </section>
+
+      
+      <section id="representative" class="section">
+        <h1>Representatives</h1>
+        <div class="two-col">
+          <div class="form-card">
+            <h3>Add Representative</h3>
+            <form id="repForm">
+              <label for="rep_name">Name</label>
+              <input id="rep_name" required />
+              <label for="rep_email">Email</label>
+              <input id="rep_email" />
+              <label for="rep_phone">Phone</label>
+              <input id="rep_phone" />
+              <label for="rep_role">Role</label>
+              <input id="rep_role" />
+              <button type="submit">Add Representative</button>
+            </form>
+          </div>
+          <div id="repList" class="list-card">Loading...</div>
+        </div>
+      </section>
+
+      
+      <section id="patient" class="section">
+        <h1>Patients</h1>
+        <div class="two-col">
+          <div class="form-card">
+            <h3>Add Patient</h3>
+            <form id="patientForm">
+              <label for="pat_name">Full Name</label>
+              <input id="pat_name" required />
+              <label for="pat_email">Email</label>
+              <input id="pat_email" />
+              <label for="pat_phone">Phone</label>
+              <input id="pat_phone" />
+              <label for="pat_dob">DOB</label>
+              <input id="pat_dob" type="date" />
+              <label for="pat_address">Address</label>
+              <input id="pat_address" />
+              <button type="submit">Add Patient</button>
+            </form>
+          </div>
+          <div id="patientList" class="list-card">Loading...</div>
+        </div>
+      </section>
+
+     
+      <section id="schedule" class="section">
+        <h1>Schedules</h1>
+        <div class="two-col">
+          <div class="form-card">
+            <h3>Add Schedule</h3>
+            <form id="scheduleForm">
+              <label for="sched_doctor">Doctor</label>
+              <select id="sched_doctor"></select>
+              <label for="sched_date">Date</label>
+              <input id="sched_date" type="date" required />
+              <label for="sched_start">Start Time</label>
+              <input id="sched_start" type="time" required />
+              <label for="sched_end">End Time</label>
+              <input id="sched_end" type="time" required />
+              <label for="sched_capacity">Capacity</label>
+              <input id="sched_capacity" type="number" value="6" />
+              <button type="submit">Add Schedule</button>
+            </form>
+          </div>
+          <div id="scheduleList" class="list-card">Loading...</div>
+        </div>
+      </section>
+
+     
+      <section id="appointment" class="section">
+        <h1>Appointments</h1>
+        <div class="two-col">
+          <div class="form-card">
+            <h3>Book Appointment</h3>
+            <form id="appointmentForm">
+              <label for="appt_patient">Patient</label>
+              <select id="appt_patient"></select>
+              <label for="appt_dept">Department</label>
+              <select id="appt_dept"></select>
+              <label for="appt_doctor">Doctor</label>
+              <select id="appt_doctor"></select>
+              <label for="appt_schedule">Schedule (optional)</label>
+              <select id="appt_schedule"><option value="">-- choose schedule --</option></select>
+              <label for="appt_time">Time (if no schedule)</label>
+              <input id="appt_time" type="time" />
+              <label for="appt_rep">Representative (optional)</label>
+              <select id="appt_rep"></select>
+              <label for="appt_date">Date</label>
+              <input id="appt_date" type="date" required />
+              <button type="submit">Add Appointment</button>
+            </form>
+          </div>
+          <div id="appointmentsList" class="list-card">Loading...</div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  
+  <div id="editModal" class="modal" aria-hidden="true">
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
